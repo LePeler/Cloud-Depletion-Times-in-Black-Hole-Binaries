@@ -2,7 +2,7 @@
 Hi, my name is Fabian Wohlfahrt, this repository includes the python scripts I coded for my bachelors thesis in physics. 
 You will find 3 scripts.
 Before running the scripts, you need to create a folder to which all the data will be saved.
-It needs to contain 4 subfolders: /Depletion-Data , /Dynamic-Data , /Results and /Plots .
+It needs to contain 3 subfolders: /Depletion-Data , /Dynamic-Data and /Results .
 You then need to insert the folder path in the path variable at the beginning of all three programs.
 # Simulator #
 This script is the one, that actually runs the main simulations. 
@@ -17,4 +17,3 @@ The errors can be solved by playing around with the variable N in line 63, varyi
 # Data-Summary #
 This program imports all the depletion times from the /Results folder and gives you functions to plot 2d slices of the data and perform fits on them,
 as well as a function, which lets you fit to the entire dataset.
-It saves any created plots to the /Plots folder.
