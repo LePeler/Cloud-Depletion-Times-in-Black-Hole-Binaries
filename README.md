@@ -1,6 +1,6 @@
 # Cloud-Depletion-Times-in-Black-Hole-Binaries #
 Hi, my name is Fabian Wohlfahrt, this repository includes the python scripts I coded for my bachelors thesis in physics. 
-You will find 3 scripts.
+You will find 3 scripts as well as the thesis itself.
 Before running the scripts, you need to create a folder to which all the data will be saved.
 It needs to contain 3 subfolders: /Depletion-Data , /Dynamic-Data and /Results .
 You then need to insert the folder path in the path variable at the beginning of all three programs.
