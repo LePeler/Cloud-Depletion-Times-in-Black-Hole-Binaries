@@ -15,6 +15,6 @@ This program will import all the data from the /Depletion-Data and /Dynamic-Data
 It will print a message in the console for every analysed file stating, wheter the analysis worked, or not (sometimes the Newton method does not converge properly).
 The errors can be solved by playing around with the variable N in line 63, varying it between 14990-15010 should do the trick.
 # Data-Summary #
-This program imports all the depletion times from the /Results folder and gives you a function to plot the 2d slices of the data and perform fits on it,
+This program imports all the depletion times from the /Results folder and gives you functions to plot 2d slices of the data and perform fits on them,
 as well as a function, which lets you fit to the entire dataset.
 It saves any created plots to the /Plots folder.
