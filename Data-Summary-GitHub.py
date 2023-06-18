@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
 import scipy.stats as stats
+import scipy.integrate as integ
+import scipy.special as spec
 import os
 plt.rc('font', size=18)
 plt.rcParams.update({
@@ -21,6 +23,30 @@ print(results)
 
 G=6.6743e-11
 c=299792459
+
+
+#goodness-of-fit tests
+def rms_test(sig):
+    N=len(sig)
+    rms=np.sqrt(np.sum(sig**2))
+    def f(x):
+        f=np.exp(-1/2*x**2)*x**(N-1)
+        return(f)
+    I=integ.quad(lambda x:f(x),rms,np.inf)[0]
+    p=(1/2)**(N/2)*2/spec.gamma(N/2)*I
+    return(p)
+
+def sup_test(sig):
+    N=len(sig)
+    sup=np.max(np.abs(sig))
+    def f(x):
+        f=np.exp(-1/2*x**2)*spec.erf(x/np.sqrt(2))**(N-1)
+        return(f)
+    J=integ.quad(lambda x:f(x),sup,np.inf)[0]
+    p=N*np.sqrt(2/np.pi)*J
+    return(p)
+#
+
 
 def Tq(a,e,Mtot,st):
     res=results[(results[:,1]==a) & (results[:,2]==e) & (results[:,3]==Mtot) & (results[:,4]==st)]
@@ -199,8 +225,9 @@ def Fit():
     print("errors:",np.sqrt(np.diag(p[1])))
     
     exp=f((Q,A,E,MTOT,ST),p[0][0],p[0][1],p[0][2],p[0][3],p[0][4])
-    test=stats.kstest(TD,exp)
-    print("KS-test p=",test[1])
+    sigma=(TD-exp)/dTD
+    print("rms-test p=",rms_test(sigma))
+    print("sup-test p=",sup_test(sigma))
     
 
 Tq(20,0,1e3,1000)
