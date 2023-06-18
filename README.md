@@ -16,4 +16,4 @@ It will print a message in the console for every analysed file stating, wheter t
 The errors can be solved by playing around with the variable N in line 59, varying it between 14990-15010 should do the trick.
 # Data-Summary #
 This program imports all the depletion times from the /Results folder and gives you functions to plot 2d slices of the data and perform fits on them,
-as well as a function, which lets you fit to the entire dataset.
+as well as a function, which lets you fit to the entire dataset and check the goodness-of-fit.
